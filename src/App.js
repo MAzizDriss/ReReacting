@@ -6,8 +6,7 @@ const App = () => {
   return (
     <div>
     <Navigation/>
-    <MovieShow/>
-</div>
+    </div>
   )
 }
 
