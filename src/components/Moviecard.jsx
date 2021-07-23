@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Button, Card, ListGroup, ListGroupItem } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 const Moviecard = (props) => {
     const movie = props.movie
     return (
@@ -11,7 +12,10 @@ const Moviecard = (props) => {
                     <Card.Text>
                         {movie.description}
                     </Card.Text>
-                    <Button variant="primary">See more</Button>
+                    <ListGroup className="list-group-flush">
+                        <ListGroupItem>Ratings : {movie.rate}</ListGroupItem>
+                    </ListGroup>
+                    <Link to={`/movie/${movie.id}`}><Button variant="primary">more about {movie.name}</Button></Link>
                 </Card.Body>
             </Card>
         </div>

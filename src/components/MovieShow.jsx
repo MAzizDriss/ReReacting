@@ -1,25 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import Moviecard from './Moviecard'
-import choufli_hal from '../Media/ch.jpg'
+import data, { arr } from '../Data/data'
 const MovieShow = () => {
-    const [movie, setmovie] = useState(
-        {
-            name: 'Chofli hal',
-            description: 'chouuuf choufli hal choouf',
-            img: choufli_hal
-        }
-    )
+    const [movies, setmovies] = useState(arr)
+    useEffect(() => {
+        setmovies(arr)
+    })
     return (
         <div className='show'>
-            <h2>Your favorite movie selection:</h2>
-            <Moviecard movie={movie} />
-            <Moviecard movie={movie} />
-            <Moviecard movie={movie} />
-            <Moviecard movie={movie} />
-            <Moviecard movie={movie} />
-            <Moviecard movie={movie} />
-            <Moviecard movie={movie} />
-            <Moviecard movie={movie} />
+            {movies.map(movie => (
+                <Moviecard movie={movie} />
+            ))}
         </div>
     )
 }

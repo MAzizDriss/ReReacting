@@ -1,5 +1,4 @@
-import React from 'react'
-import {Navbar,Container,Nav} from 'react-bootstrap'
+import { Navbar, Container, Nav, FormText } from 'react-bootstrap'
 import {
     BrowserRouter as Router,
     Switch,
@@ -7,31 +6,29 @@ import {
     Link
 } from "react-router-dom"
 import MovieShow from './MovieShow'
-
+import Movie from './Movie'
 const Navigation = () => {
     return (
         <header>
-        <Router>
-        <Navbar bg="primary" variant="dark">
-            <Container>
-                <Navbar.Brand href="#home" style={{marginLeft:"10%"}}>Watanya 2</Navbar.Brand>
-                <Nav className="me-auto">
-                    <Link to='/'><Nav.Link href="#home">Home</Nav.Link></Link>
-                    <Link to ='/profile'><Nav.Link href="#features">Profile</Nav.Link></Link>
-                    <Link to ='/'><Nav.Link href="#pricing">My movies</Nav.Link></Link>
-                </Nav>
-            </Container>
-        </Navbar>
-        
+            <Router>
+                <Navbar bg="primary" variant="dark">
+                    <Container>
+                        <Link to='/' className='link'><Navbar.Brand href="#home" style={{ marginLeft: "10%" }}>Watanya 2</Navbar.Brand></Link>
+                        <Nav className="me-auto">
+                            <Link to='/' className='link'><Nav.Link href="#home">Home</Nav.Link></Link>
+                            <Link to='/mymovies' className='link'><Nav.Link href="#pricing">My movies</Nav.Link></Link>
+                        </Nav>
+                    </Container>
+                </Navbar>
                 <Switch>
-                    <Route exact path="/profile">
-                        <h1>gggg</h1>
+                    <Route exact path='/movie/:id'>
+                        <Movie />
                     </Route>
-                    <Route path="/">
-                        <MovieShow/>
+                    <Route exact path="/">
+                        <MovieShow />
                     </Route>
                 </Switch>
-        </Router>
+            </Router>
         </header>
     )
 }
